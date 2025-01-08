@@ -115,13 +115,8 @@
     }
 
     .media-description {
-        display: flex;
-        flex-direction: column;
-        max-width: calc(100% - 400px);
-        /* add some extra margin top and remove some bottom to keep the
-        height the same. and vertically center the text with the buttons. */
-        margin-top: 25px;
-        margin-bottom: 15px;
+        flex: 1;
+        min-width: 0;
 
         font-size: 1.1rem;
         color: hsl(0deg 0% 100%);
