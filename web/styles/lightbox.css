@@ -154,10 +154,10 @@
         align-items: center;
 
         & iframe {
-            /* maintain 16:9 ratio. */
-            width: calc((100vh - 65px - 95px) * 16 / 9);
-            height: 100%;
-            margin: auto;
+            aspect-ratio: 16/9;
+            width: 100%;
+            max-width: $lg_min;
+            max-height: calc(100vh - 200px);
         }
     }
 
