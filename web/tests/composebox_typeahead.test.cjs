@@ -1858,6 +1858,7 @@ test("begins_typeahead", ({override, override_rewire}) => {
         return topics.map((topic) => ({
             type: "topic_list",
             topic,
+            to_markdown_link: false,
         }));
     }
     assert_typeahead_equals("#**Sweden>more ice", typed_topics(["more ice", "even more ice"]));
