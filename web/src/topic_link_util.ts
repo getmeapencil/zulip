@@ -11,6 +11,12 @@ export function will_produce_broken_stream_topic_link(word: string): boolean {
 }
 
 function get_stream_name_from_topic_link_syntax(syntax: string): string {
+    if (syntax.startsWith("[#")) {
+        const start = syntax.indexOf("[#");
+        const end = syntax.indexOf("](#narrow/channel/");
+        const escaped_stream_name = syntax.slice(start + 2, end);
+        return unescape_invalid_stream_topic_characters(escaped_stream_name);
+    }
     const start = syntax.indexOf("#**");
     const end = syntax.lastIndexOf(">");
     return syntax.slice(start + 3, end);

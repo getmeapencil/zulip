@@ -77,15 +77,20 @@ run_test("stream_topic_link_syntax_test", () => {
         topic_link_util.get_fallback_markdown_link("Sweden"),
         "[#Sweden](#narrow/channel/1-Sweden)",
     );
-
     assert.equal(
         topic_link_util.get_fallback_markdown_link("$$MONEY$$"),
         "[#&#36;&#36;MONEY&#36;&#36;](#narrow/channel/6-.24.24MONEY.24.24)",
     );
-
     assert.equal(
         topic_link_util.get_stream_topic_link_syntax("#**Sweden>&ab", "&ab"),
         "[#Sweden > &amp;ab](#narrow/channel/1-Sweden/topic/.26ab)",
+    );
+    assert.equal(
+        topic_link_util.get_stream_topic_link_syntax(
+            "[#&#36;&#36;MONEY&#36;&#36;](#narrow/channel/6-.24.24MONEY.24.24)>&ab",
+            "&ab",
+        ),
+        "[#&#36;&#36;MONEY&#36;&#36; > &amp;ab](#narrow/channel/6-.24.24MONEY.24.24/topic/.26ab)",
     );
     assert.equal(
         topic_link_util.unescape_invalid_stream_topic_characters("&#36;&#36;MONEY&#36;&#36;"),
